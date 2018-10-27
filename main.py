@@ -1,4 +1,5 @@
 from flask import Flask, request
+from fractions import Fraction
 
 app = Flask(__name__)
 
@@ -33,8 +34,43 @@ def division():
     value1=request.args.get('A',default = 0, type = float)
     value2=request.args.get('B',default = 0, type = float)
     result=value1/value2
-    return '%.2f \n' % result   
+    return '%.2f \n' % result 
 
+@app.route('/radd')
+def r_addition():
+    value1=request.args.get('A',default = 0, type = str)
+    num1,den1 = str(value1).split('/')
+    value2=request.args.get('B',default = 0, type = str)
+    num2,den2 = str(value2).split('/')
+    result=str(Fraction(int(num1),int(den1))+Fraction(int(num2),int(den2)))
+    return result
+
+@app.route('/rsub')
+def r_subtraction():
+    value1=request.args.get('A',default = 0, type = str)
+    num1,den1 = str(value1).split('/')
+    value2=request.args.get('B',default = 0, type = str)
+    num2,den2 = str(value2).split('/')
+    result=str(Fraction(int(num1),int(den1))-Fraction(int(num2),int(den2)))
+    return result
+
+@app.route('/rmult')
+def r_multiplication():
+    value1=request.args.get('A',default = 0, type = str)
+    num1,den1 = str(value1).split('/')
+    value2=request.args.get('B',default = 0, type = str)
+    num2,den2 = str(value2).split('/')
+    result=str(Fraction(int(num1),int(den1))*Fraction(int(num2),int(den2)))
+    return result 
+
+@app.route('/rdiv')
+def r_division():
+    value1=request.args.get('A',default = 0, type = str)
+    num1,den1 = str(value1).split('/')
+    value2=request.args.get('B',default = 0, type = str)
+    num2,den2 = str(value2).split('/')
+    result=str(Fraction(int(num1),int(den1))/Fraction(int(num2),int(den2)))
+    return result
 
 
 if __name__ == "__main__":
