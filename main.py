@@ -20,10 +20,10 @@ def division():
         return 'None'
     else:
 	try:
-		a = Fraction(a)
-		b = Fraction(b)
-		result = a / b
-        	return str(round(float(result),3)) + "\n"
+            a = Fraction(a)
+            b = Fraction(b)
+            result = a / b
+            return str(round(float(result),3)) + "\n"
 	except:
 		return "ERROR denominator part of A or B shouldnot be zero!\n"
 if __name__ == "__main__":
