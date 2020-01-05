@@ -25,7 +25,7 @@ def division():
             result = a / b
             return str(round(float(result),3)) + "\n"
 	except:
-            return "ERROR denominator part of A or B shouldnot be zero!\n"
+            return "None"
 if __name__ == "__main__":
     app.run()
 
